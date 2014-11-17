@@ -1,0 +1,26 @@
+\mode<presentation>
+
+\newlength{\barht}
+\setlength{\barht}{1.5cm}
+
+% Frame title
+\defbeamertemplate*{frametitle}{ICM}[1][]
+{
+	\begin{beamercolorbox}[wd=\paperwidth,ht=\barht]{frametitle} 
+		\begin{tikzpicture}
+			\useasboundingbox[fill=white] (0,0) rectangle(\the\paperwidth,\barht);
+			\usebeamercolor{palette primary}
+			\draw[draw=none,fill=fg] (0,0.15\barht) .. controls (0.3\paperwidth, 0) .. (\paperwidth,0.25\barht) -- (\paperwidth,\barht) -- (0,\barht);
+			\node[inner sep=0pt] (logo) at (0.94\paperwidth,0.625\barht) %
+				{\includegraphics[height=.5\barht]{icmwhite.png}};
+			\ifx\insertframesubtitle\@empty%
+			{\node[anchor=west, white,font=\large] at (0.5,0.81){\insertframetitle};}
+			\else%
+			{\node[anchor= west, white,font=\large] at (0.5,1.01){\insertframetitle};%
+			\node[anchor= west, white,font=\small] at (0.5,0.61){\insertframesubtitle};}%
+			\fi
+		\end{tikzpicture}
+	\end{beamercolorbox}
+}
+
+\mode<all>
