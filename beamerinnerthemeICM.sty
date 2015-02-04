@@ -19,26 +19,29 @@
 
 % Title page
 \defbeamertemplate*{title page}{ICM}[1][]
-{ 
-	\vskip3cm%
-	\hspace{0.25\paperwidth}%
-	\begin{beamercolorbox}[wd=0.6\paperwidth,leftskip=1pt,sep=1pt,#1]{title page header}
-		\usebeamerfont{title}\inserttitle\par%
-	\end{beamercolorbox}%
-	\vskip2cm%
-	\hspace{0.25\paperwidth}%
-	\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{author}
-		\usebeamerfont{author}\insertauthor%
-	\end{beamercolorbox}
-	\ifx\insertinstitute\@empty{}\else%
-	{\vskip0.1cm \hspace{0.25\paperwidth}\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{institute}\usebeamerfont{institute}\insertinstitute\end{beamercolorbox}}%
-	\fi
-	\vskip0.1cm%
-	\hspace{0.25\paperwidth}%
-	\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{date}
-		\usebeamerfont{date}\insertdate%
-	\end{beamercolorbox}
-	\vfill
+{
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		\usebeamercolor{palette primary}
+
+		% Draw texts
+		\node[inner sep=0pt] (title) at (.55\paperwidth,.65\paperheight) %
+			{\begin{beamercolorbox}[wd=0.6\paperwidth,leftskip=1pt,sep=1pt,#1]{title page header} %
+			\usebeamerfont{title}\inserttitle\par %
+			\end{beamercolorbox}};
+		\node[inner sep=0pt] (author) at (.55\paperwidth,.24\paperheight) %
+			{\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{author} %
+			\usebeamerfont{author}\insertauthor %
+			\end{beamercolorbox}};
+		\node[inner sep=0pt] (author) at (.55\paperwidth,.16\paperheight) %
+			{\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{institute}
+			\usebeamerfont{institute}\insertinstitute
+			\end{beamercolorbox}};
+		\node[inner sep=0pt] (author) at (.55\paperwidth,.08\paperheight) %
+			{\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{date} %
+			\usebeamerfont{date}\insertdate %
+			\end{beamercolorbox}};
+	\end{tikzpicture}
 }
 
 % Items
