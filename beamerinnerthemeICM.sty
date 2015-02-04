@@ -1,19 +1,10 @@
 \mode<presentation>
 
+\setbeamersize{text margin left = 0}
+
 \setbeamertemplate{background}{
 	\begin{tikzpicture}
-		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-		\usebeamercolor{palette primary}
-		\draw[draw=none,fill=fg] (0.3\paperwidth,\paperheight) arc (172.8:187.2:4\paperheight) %
-			-- (0.3\paperwidth,0) -- (\paperwidth,0) -- (\paperwidth,\paperheight);
-		\usebeamercolor{palette secondary}
-		\draw[draw=none,fill=fg,opacity=0.9] (0,0) -- (0,0.3\paperheight) %
-			-- (0,0.3\paperheight) arc (97.2:82.8:4\paperwidth) -- (\paperwidth,0) -- (0,0);
-		\node[inner sep=0pt] (logo) at (.14\paperwidth,.09\paperwidth) %
-			{\includegraphics[width=.25\textwidth]{icmwhite.png}};
-		\ifnum\thepage>1\relax%
 		\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-		\fi
 	\end{tikzpicture}
 }
 
@@ -24,25 +15,54 @@
 		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
 		\usebeamercolor{palette primary}
 
-		% Draw texts
-		\node[inner sep=0pt] (title) at (.55\paperwidth,.65\paperheight) %
+		% Draw curves
+		\draw[draw=none,fill=fg] (0.3\paperwidth,\paperheight) arc (172.8:187.2:4\paperheight) %
+			-- (0.3\paperwidth,0) -- (\paperwidth,0) -- (\paperwidth,\paperheight);
+		\usebeamercolor{palette secondary}
+		\draw[draw=none,fill=fg,opacity=0.9] (0,0) -- (0,0.3\paperheight) %
+			-- (0,0.3\paperheight) arc (97.2:82.8:4\paperwidth) -- (\paperwidth,0) -- (0,0);
+		\node[inner sep=0pt] (logo) at (.14\paperwidth,.09\paperwidth) %
+			{\includegraphics[width=.25\textwidth]{icmwhite.png}};
+
+		% Draw text
+		\node[inner sep=0pt] (title) at (.62\paperwidth,.65\paperheight) %
 			{\begin{beamercolorbox}[wd=0.6\paperwidth,leftskip=1pt,sep=1pt,#1]{title page header} %
 			\usebeamerfont{title}\inserttitle\par %
 			\end{beamercolorbox}};
-		\node[inner sep=0pt] (author) at (.55\paperwidth,.24\paperheight) %
+		\node[inner sep=0pt] (author) at (.62\paperwidth,.24\paperheight) %
 			{\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{author} %
 			\usebeamerfont{author}\insertauthor %
 			\end{beamercolorbox}};
-		\node[inner sep=0pt] (author) at (.55\paperwidth,.16\paperheight) %
+		\node[inner sep=0pt] (author) at (.62\paperwidth,.16\paperheight) %
 			{\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{institute}
 			\usebeamerfont{institute}\insertinstitute
 			\end{beamercolorbox}};
-		\node[inner sep=0pt] (author) at (.55\paperwidth,.08\paperheight) %
+		\node[inner sep=0pt] (author) at (.62\paperwidth,.08\paperheight) %
 			{\begin{beamercolorbox}[wd=0.6\paperwidth,#1]{date} %
 			\usebeamerfont{date}\insertdate %
 			\end{beamercolorbox}};
 	\end{tikzpicture}
 }
+
+% Part page
+\defbeamertemplate*{part page}{ICM}[1][]
+{
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		\usebeamercolor{palette primary}
+
+		% Draw curves
+		\draw[draw=none,fill=fg] (0.3\paperwidth,\paperheight) arc (172.8:187.2:4\paperheight) %
+			-- (0.3\paperwidth,0) -- (\paperwidth,0) -- (\paperwidth,\paperheight) -- cycle;
+
+		% Draw text
+		\node[inner sep=0pt] (title) at (.62\paperwidth,.5\paperheight) %
+			{\begin{beamercolorbox}[wd=0.6\paperwidth,leftskip=1pt,sep=1pt,#1]{part title} %
+			\usebeamerfont{part title}\insertpart\par %
+			\end{beamercolorbox}};
+	\end{tikzpicture}
+}
+
 
 % Items
 \setbeamertemplate{items}[square]
