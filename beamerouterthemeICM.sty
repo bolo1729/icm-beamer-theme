@@ -10,7 +10,7 @@
 		\begin{tikzpicture}
 			\useasboundingbox[fill=white] (0,0) rectangle(\the\paperwidth,\barht);
 			\usebeamercolor{palette primary}
-			\draw[draw=none,fill=fg] (0,0.15\barht) .. controls (0.3\paperwidth, 0) .. (\paperwidth,0.25\barht) -- (\paperwidth,\barht) -- (0,\barht);
+			\draw[draw=none,fill=fg] (0,0.15\barht) .. controls (0.3\paperwidth, 0) .. (\paperwidth,0.25\barht) -- (\paperwidth,\barht) -- (0,\barht) -- cycle;
 			\node[inner sep=0pt] (logo) at (0.94\paperwidth,0.625\barht) %
 				{\includegraphics[height=.5\barht]{icmwhite.png}};
 			\ifx\insertframesubtitle\@empty%
