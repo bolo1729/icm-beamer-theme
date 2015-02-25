@@ -3,6 +3,7 @@
 \usepackage[math]{kurier}
 \usepackage[T1]{fontenc}
 \usepackage{lipsum}
+\usepackage{ragged2e}
 \usetheme{ICM}
 
 % =============================================================================
@@ -22,29 +23,50 @@
 
 % =============================================================================
 
-\begin{frame}%
-	\frametitle{Lorem ipsum}%
-	\lipsum[2]
+\begin{frame}{Lorem ipsum}%
+	\begin{columns}%
+		\column{0.95\textwidth}%
+			\setlength{\parskip}{1ex}%
+			\justifying%
+			\lipsum[2]
+	\end{columns}%
 \end{frame}
 
 % =============================================================================
 
-\begin{frame}%
-	\frametitle{Lorem ipsum dolor sit amet}%
+\begin{frame}{Lorem ipsum dolor sit amet}%
 	\framesubtitle{Donec felis erat}%
-	Nulla ullamcorper vestibulum turpis:
-	\begin{enumerate}
-		\item Nulla malesuada porttitor diam.
-		\item Donec felis erat, congue non\dots
-		\item Vivamus viverra fermentum felis.
-	\end{enumerate}
+	\begin{columns}%
+		\column{0.95\textwidth}%
+			\setlength{\parskip}{1ex}%
+			\justifying%
+			Nulla ullamcorper vestibulum turpis:
+			\begin{enumerate}
+				\item Nulla malesuada porttitor diam.
+				\item Donec felis erat, congue non\dots
+				\item Vivamus viverra fermentum felis.
+			\end{enumerate}
 
-	Pellentesque a nulla:
-	\begin{equation*}
-		\oint_{\partial \Sigma} \mathbf{B} \cdot \mathrm{d}\boldsymbol{\ell} = \mu_0 \iint_{\Sigma} \mathbf{J}
-		\cdot \mathrm{d}\mathbf{S} + \mu_0 \varepsilon_0 \frac{d}{dt} \iint_{\Sigma} \mathbf{E}
-		\cdot \mathrm{d}\mathbf{S}
-	\end{equation*}
+			Pellentesque a nulla:
+			\begin{equation*}
+				\oint_{\partial \Sigma} \mathbf{B} \cdot \mathrm{d}\boldsymbol{\ell} = \mu_0 \iint_{\Sigma} \mathbf{J}
+				\cdot \mathrm{d}\mathbf{S} + \mu_0 \varepsilon_0 \frac{d}{dt} \iint_{\Sigma} \mathbf{E}
+				\cdot \mathrm{d}\mathbf{S}
+			\end{equation*}
+	\end{columns}%
+\end{frame}
+
+% =============================================================================
+
+\begin{frame}{Quisque ullamcorper}%
+	\begin{columns}%
+		\column{0.6\textwidth}%
+			\setlength{\parskip}{1ex}%
+			\justifying%
+			\lipsum[4]
+		\column{0.4\textwidth}%
+			\includegraphics[width=\textwidth]{fountain-pen}
+	\end{columns}%
 \end{frame}
 
 % =============================================================================
