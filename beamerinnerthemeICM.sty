@@ -63,6 +63,30 @@
 	\end{tikzpicture}
 }
 
+% Section page
+\defbeamertemplate*{section page}{ICM}[1][]
+{
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		\usebeamercolor{palette primary}
+
+		% Draw curves
+		\draw[draw=none,fill=fg] (0.3\paperwidth,\paperheight) arc (172.8:187.2:4\paperheight) %
+			-- (0.3\paperwidth,0) -- (\paperwidth,0) -- (\paperwidth,\paperheight) -- cycle;
+
+		% Draw text
+		\node[inner sep=0pt] (title) at (.62\paperwidth,.55\paperheight) %
+			{\begin{beamercolorbox}[wd=0.6\paperwidth,leftskip=1pt,sep=1pt,#1]{part title} %
+			\usebeamerfont{part title}\insertpart\par %
+			\end{beamercolorbox}};
+		\node[inner sep=0pt] (title) at (.62\paperwidth,.45\paperheight) %
+			{\begin{beamercolorbox}[wd=0.6\paperwidth,leftskip=1pt,sep=1pt,#1]{section title} %
+			\usebeamerfont{section title}\insertsection\par %
+			\end{beamercolorbox}};
+
+	\end{tikzpicture}
+}
+
 
 % Items
 \setbeamertemplate{items}[square]
